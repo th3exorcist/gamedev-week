@@ -14,15 +14,16 @@ function preload() {
 }
 
 function setup(){
-   createCanvas(windowWidth, windowHeight);
+    createCanvas(windowWidth, windowHeight);
     bg = create_bg(image_bg, 3);
-  music.loop();
+    music.loop();
+    ch = Character(image_ch);
 }
 
 function draw() {
   bg.show();
   bg.move();
-  image(image_ch, 0, height-135, 110,135, 0, 0, 210, 270);
+  ch.show();
 }
 
 
@@ -37,7 +38,7 @@ class create_bg {
   
   show() {
       background(this.img, this.x1, 0, width, height);
-  background(this.img,this.x2, 0, width, height);
+      background(this.img,this.x2, 0, width, height);
   }
   
   move() {
@@ -53,5 +54,21 @@ class create_bg {
        this.x2 = width;
        
        }
+  }
+}
+
+class Character {
+  
+    constructor(img) {
+    this.img = img;
+    this.matrix = matrix;
+  }
+  
+  show() {
+    image(image_ch, 0, height-135, 110,135, 0, 0, 210, 270);
+  }
+  
+  move() {
+    this.frameA++;
   }
 }
